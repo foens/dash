@@ -1,0 +1,15 @@
+digraph {
+	ranksep=0.5
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.4]
+
+	init1 [label="0\nfalse"]
+	init2 [label="0\ntrue"]
+	1 [label="1\ntrue"]
+	error [label="2\ntrue",style=filled,fillcolor=red]
+
+	init1->1[label=" true",fontcolor="#0000FF"]
+	init2->1[label=" true",fontcolor="#0000FF"]
+	init2->error[label="  false",fontcolor="#0000FF",color="#FF0000", style="bold"]
+}

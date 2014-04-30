@@ -1,0 +1,15 @@
+digraph {
+	ranksep=0.10
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.5]
+
+	0 [label="0\l(and\l   i = 2↓x\l   x = 2↓y\l   2↓y = 4\l   2↓x = 2↓xₒ\l   2↓xₒ > 0)\l",style=filled,fillcolor=gray]
+	1 [label="2\l&not;((and\l   s = 5\l   2↓x = 2))\l"]
+	2 [label="2\l(and\l   s = 5\l   2↓x = 2)\l",style=filled,fillcolor=red]
+	3 [label="1"]
+
+	0->3[label=" s := (i + x)"]
+	3->2[label=" return s"]
+	3->1[label=" return s"]
+}

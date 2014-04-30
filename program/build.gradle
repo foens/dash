@@ -1,0 +1,68 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'jacoco'
+apply plugin: 'findbugs'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-log4j12:1.7.5'
+    compile 'com.google.guava:guava:15.0'
+    compile fileTree(dir: 'libs', include: '*.jar')
+    testCompile "junit:junit:4.11"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+}
+
+test {
+    systemProperty 'java.library.path', 'libs/;C:/Windows/System32'
+}
+
+task('testdebug', type: Test) {
+    systemProperty 'java.library.path', 'libs_debug/;C:/Windows/System32'
+    systemProperty 'dk.au.cs.dash.debug', 'true'
+}
+
+jacocoTestReport {
+    reports {
+        html.enabled = true
+        csv.enabled = false
+        xml.enabled = true
+    }
+}
+
+idea {
+    project {
+        outputFile = file('Dash.ipr')
+    }
+}
+
+idea.project.ipr {
+    withXml { provider ->
+        def map = provider.node.component.find { it.@name == 'VcsDirectoryMappings' }.mapping
+        map.@vcs = 'Git'
+        map.@directory = project.properties.projectDir.parentFile
+    }
+}
+
+findbugs {
+    findbugsMain {
+        reports {
+            xml.enabled = true
+            html.enabled = false
+        }
+    }
+
+    toolVersion = "2.0.1"
+    ignoreFailures = true
+    reportsDir = file("$project.buildDir/findbugsReports")
+    effort = "max"
+    reportLevel = "low"
+    includeFilter = file("findbugs-includeFilter.xml")
+    excludeFilter = file("findbugs-excludeFilter.xml")
+}

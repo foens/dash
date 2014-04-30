@@ -1,0 +1,15 @@
+digraph {
+	ranksep=0.5
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.4]
+
+	before[label=""]
+	sk1 [label=<S<sub>k-1</sub><br/>ρ<sub>k-1</sub>>]
+	other [label=""]
+	sk [label=<S<sub>k</sub>>]
+
+	before->sk1[label=""style="dashed"]
+	sk1->other[label=""style="dashed"]
+	sk1->sk
+}

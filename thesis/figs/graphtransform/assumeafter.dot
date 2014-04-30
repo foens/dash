@@ -1,0 +1,20 @@
+digraph {
+	ranksep=0.5
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.5]
+
+
+	start1 [label=""]
+	3 [label="Region"]
+	4 [label="Region"]
+	5 [label="Region"]
+	6 [label=""]
+	7 [label=""]
+
+	start1->3[label=""style="dashed"]
+	3->4[label="c", fontcolor="#0000FF"]
+	3->5[label="&not;c", fontcolor="#0000FF"]
+	4->6[label="  Stm1"]
+	5->7[label="  Stm2"]
+}

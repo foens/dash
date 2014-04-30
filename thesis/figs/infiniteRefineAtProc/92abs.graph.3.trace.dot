@@ -1,0 +1,30 @@
+digraph {
+	ranksep=0.10
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.5]
+
+	0 [label="0 {#0[4↓k→2, 4↓kₒ→2, z→2]}\l(and\l   z ≥ 0\l   z = 4↓k\l   4↓k = 4↓kₒ\l   0 > (-1 * 4↓kₒ))\l",style=filled,fillcolor=gray]
+	1 [label="0\l(and\l   z < 0\l   z = 4↓k\l   4↓k = 4↓kₒ\l   4↓kₒ ≠ -2147483648)\l",style=filled,fillcolor=gray]
+	2 [label="3 {#1[4↓k→2, 4↓kₒ→2, z→2]}\l!((and\l   z ≠ -2147483648\l   z < 0))\l"]
+	3 [label="1"]
+	4 [label="3\l(and\l   z ≠ -2147483648\l   z < 0)\l"]
+	5 [label="4\l!((and\l   $i0 ≠ -2147483648\l   $i0 < 0))\l"]
+	6 [label="4\l(and\l   $i0 ≠ -2147483648\l   $i0 < 0)\l",style=filled,fillcolor=red]
+	7 [label="2"]
+	8 [label="4\l(and\l   z ≠ -2147483648\l   z < 0)\l",style=filled,fillcolor=red]
+	9 [label="4 {#2[4↓k→2, 4↓kₒ→2, z→2]}\l!((and\l   z ≠ -2147483648\l   z < 0))\l"]
+
+splits [label="Initial region splits\l0:\l(and\l   z ≠ -2147483648\l   z < 0)\l",style=rounded]
+	1->3[label=" z < 0",fontcolor="#0000FF"]
+	1->2[label=" z ≥ 0",fontcolor="#0000FF"]
+	1->4[label=" z ≥ 0",fontcolor="#0000FF", color="#FF0000", style="bold"]
+	2->9[label=" return z"]
+	0->3[label=" z < 0",fontcolor="#0000FF"]
+	0->2[label=" z ≥ 0",fontcolor="#0000FF"]
+	3->7[label=" $i0 := -z"]
+	4->9[label=" return z"]
+	7->6[label=" return $i0"]
+	7->5[label=" return $i0"]
+	4->8[label=" return z", color="#FF0000", style="bold,dashed"]
+}

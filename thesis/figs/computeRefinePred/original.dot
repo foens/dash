@@ -1,0 +1,21 @@
+digraph {
+	ranksep=0.5
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.4]
+
+	init [label=<0<br/>&phi;<sub>ic</sub>>,style=filled,fillcolor=gray]
+	1 [label="1"]
+	2 [label="2"]
+	3 [label="3"]
+	4 [label="4"]
+	5 [label="5"]
+	6 [label="6"]
+
+	init->1[label="a"]
+	init->2[label="b"]
+	init->3[label="c",color="#FF0000", style="bold"]
+	init->4[label="d"]
+	init->5[label="e"]
+	init->6[label="f",color="#FF0000", style="bold"]
+}

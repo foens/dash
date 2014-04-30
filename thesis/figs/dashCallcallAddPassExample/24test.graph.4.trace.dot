@@ -1,0 +1,33 @@
+digraph {
+	ranksep=0.10
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.5]
+
+	0 [label="0 {#0[y→0, x→1], #0[y→0, x→2]}",style=filled,fillcolor=gray]
+	1 [label="7 {#9[q→5, y→4, x→1], #8[q→6, y→4, x→2]}"]
+	2 [label="5",style=filled,fillcolor=red]
+	3 [label="2 {#2[y→4, x→1], #2[y→4, x→2]}"]
+	4 [label="6 {#8[q→5, y→4, x→1], #7[q→6, y→4, x→2]}"]
+	5 [label="3 {#6[q→5, y→4, x→1]}\lx ≠ 2"]
+	6 [label="4 {#7[q→5, y→4, x→1]}\lx ≠ 2"]
+	7 [label="4\lx = 2"]
+	8 [label="3 {#6[q→6, y→4, x→2]}\lx = 2"]
+	9 [label="1 {#1[y→0, x→1], #1[y→0, x→2]}"]
+
+	3->5[label=" q := sum(x, y)"]
+	5->6[label=" q = 5",fontcolor="#0000FF"]
+	8->7[label=" q = 5",fontcolor="#0000FF", color="#FF0000", style="bold"]
+	0->4[label=" x ≤ 0",fontcolor="#0000FF"]
+	7->2[label=" x = 2",fontcolor="#0000FF", color="#FF0000", style="bold,dashed"]
+	4->1[label=" return"]
+	0->9[label=" x > 0",fontcolor="#0000FF", color="#00FF00", style="bold"]
+	2->4[label=" error"]
+	9->3[label=" y := 4", color="#00FF00", style="bold"]
+	8->4[label=" q ≠ 5",fontcolor="#0000FF"]
+	5->4[label=" q ≠ 5",fontcolor="#0000FF"]
+	6->4[label=" x ≠ 2",fontcolor="#0000FF"]
+	8->6[label=" q = 5",fontcolor="#0000FF"]
+	7->4[label=" x ≠ 2",fontcolor="#0000FF"]
+	3->8[label=" q := sum(x, y)", color="#00FF00", style="bold"]
+}

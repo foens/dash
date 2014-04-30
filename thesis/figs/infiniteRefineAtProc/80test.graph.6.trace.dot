@@ -1,0 +1,34 @@
+digraph {
+	ranksep=0.10
+	nodesep=0.12
+	node[fontsize=10.5,shape=box,height=0.02,width=0.02,margin="0.05,0.05"]
+	edge[fontsize=10.5,arrowsize=0.5]
+
+	0 [label="0 {#0[k→0], #0[k→-2147483648]}\l(and\l   &not;((and\l      k ≠ -2147483648\l      k < 0))\l   &not;((and\l      k ≠ -2147483648\l      0 > (-1 * k))))\l",style=filled,fillcolor=gray]
+	1 [label="0\l(or\l   (and\l      k ≠ -2147483648\l      k < 0)\l   (and\l      k ≠ -2147483648\l      0 > (-1 * k)))\l",style=filled,fillcolor=gray]
+	2 [label="1 {#4[a→0, k→0]}\la ≥ 0"]
+	3 [label=" 4 {#5[a→0, k→0], #7[a→-2147483648, k→-2147483648]} "]
+	4 [label="2 {#6[a→-2147483648, k→-2147483648]}  \la = -2147483648"]
+	5 [label=" 5 {#6[a→0, k→0], #8[a→-2147483648, k→-2147483648]} "]
+	6 [label="3",style=filled,fillcolor=red]
+	7 [label="1 {#5[a→-2147483648, k→-2147483648]}  \la = -2147483648"]
+	8 [label="2\la ≠ -2147483648"]
+	9 [label="1\l(and\l   a ≠ -2147483648\l   a < 0)\l"]
+
+	0->7[label=" a := abs(k)"]
+	6->3[label=" error"]
+	1->2[label=" a := abs(k)"]
+	0->2[label=" a := abs(k)"]
+	9->8[label=" a < 0",fontcolor="#0000FF", color="#FF0000", style="bold,dashed"]
+	7->4[label=" a < 0",fontcolor="#0000FF"]
+	1->9[label=" a := abs(k)", color="#FF0000", style="bold"]
+	9->3[label=" a ≥ 0",fontcolor="#0000FF"]
+	1->7[label=" a := abs(k)"]
+	7->3[label=" a ≥ 0",fontcolor="#0000FF"]
+	8->3[label=" a = -2147483648",fontcolor="#0000FF"]
+	8->6[label=" a ≠ -2147483648",fontcolor="#0000FF", color="#FF0000", style="bold,dashed"]
+	3->5[label=" return"]
+	2->3[label=" a ≥ 0",fontcolor="#0000FF"]
+	9->4[label=" a < 0",fontcolor="#0000FF"]
+	4->3[label=" a = -2147483648",fontcolor="#0000FF"]
+}

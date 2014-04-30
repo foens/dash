@@ -1,0 +1,10 @@
+# IntelliJ project files
+*.iml
+*.ipr
+*.iws
+out/
+build/
+.gradle/
+graphs/
+sootOutput/
+log.txt
