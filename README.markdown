@@ -14,7 +14,7 @@ The implementation supports interprocedural analysis of integer programs. There 
 Windows 64bit and a 64bit version of Java is required since [Z3](https://z3.codeplex.com/), a theorem prover, was built for Windows 64bit. If you build the Z3 binary yourself, the project should be able to run on Linux as well. The Z3 binaries in the repository is built from the `unstable` branch of Z3 with the commit hash `b1b349f49662d16c87060f82ddcf8204ce4f7b`. Loading of libz3 and dependencies are performed in [Native.java](program/src/main/java/com/microsoft/z3/Native.java). Building newer versions of Z3 might require that the [Z3 JNI wrappers](program/src/main/java/com/microsoft/z3) are upgraded as well.
 
 ###Run all tests
-Executing all the [tests][3] in the project can be achieved by invoking gradle: `gradlew test`. It is very easy to add new tests to the project.
+Executing all the [tests][3] in the project can be achieved by invoking gradle: `gradlew test`. It is easy to add new tests to the project.
 
 Graphs can be generated for each iteration of DASH by setting the `log level` to `trace` in [log4j.xml](program/src/test/resources/log4j.xml). Be prepared to take a coffee break, as graph output is not fast. Notice that [GraphViz dot](http://www.graphviz.org/) is used to generate the graphs, and the binary contained in the repository is built for Windows.
 
